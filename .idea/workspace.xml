@@ -9,22 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aed1fbce-806d-496a-b5d3-5dea433c5ea0" name="Changes" comment="lesson 23">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+    <list default="true" id="aed1fbce-806d-496a-b5d3-5dea433c5ea0" name="Changes" comment="lesson 25">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/crud/example/config/MySpringMVCDispatcherServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/crud/example/config/MySpringMVCDispatcherServletInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/crud/example/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/crud/example/controllers/PeopleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/crud/example/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/crud/example/dao/PersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/crud/example/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/crud/example/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +55,11 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;6c053da4de13745a541a6872a8d53001&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -175,7 +169,8 @@
       <workItem from="1657026858682" duration="1620000" />
       <workItem from="1657028531956" duration="1979000" />
       <workItem from="1657030598589" duration="591000" />
-      <workItem from="1657093120813" duration="4935000" />
+      <workItem from="1657093120813" duration="7475000" />
+      <workItem from="1657188518624" duration="3990000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 22">
       <created>1656945057933</created>
@@ -198,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657028823481</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="lesson 25">
+      <created>1657099803486</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657099803486</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +220,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson 22" />
     <MESSAGE value="lesson 23" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 23" />
+    <MESSAGE value="lesson 25" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 25" />
   </component>
 </project>
