@@ -12,24 +12,23 @@ public class BatchController {
     private final PersonDAO personDAO;
 
     @Autowired
-    public BatchController(PersonDAO personDAO){
-
+    public BatchController(PersonDAO personDAO) {
         this.personDAO = personDAO;
     }
 
     @GetMapping()
-    public String index(){
+    public String index() {
         return "batch/index";
     }
 
     @GetMapping("/without")
-    public String withBatch(){
+    public String withBatch() {
         personDAO.testMultipleUpdate();
         return "redirect:/people";
     }
 
     @GetMapping("/with")
-    public String withoutBatch(){
+    public String withoutBatch() {
         personDAO.testBatchUpdate();
         return "redirect:/people";
     }

@@ -43,15 +43,15 @@ public class PersonDAO {
     }
 
     public void delete(int id) {
-        jdbcTemplate.update("DELETE FROM PERSON WHERE id=?",id);
+        jdbcTemplate.update("DELETE FROM PERSON WHERE id=?", id);
     }
 
-    public void testMultipleUpdate(){
+    public void testMultipleUpdate() {
         List<Person> people = create1000Person();
         long before = System.currentTimeMillis();
         for (int i = 0; i < people.size(); i++) {
-            jdbcTemplate.update("INSERT INTO Person VALUES(?,?,?,?)",people.get(i).getId(),
-                    people.get(i).getName(),people.get(i).getAge(), people.get(i).getEmail());
+            jdbcTemplate.update("INSERT INTO Person VALUES(?,?,?,?)", people.get(i).getId(),
+                    people.get(i).getName(), people.get(i).getAge(), people.get(i).getEmail());
         }
         long after = System.currentTimeMillis();
         System.out.println("Multiple update time " + (after - before));
@@ -60,21 +60,21 @@ public class PersonDAO {
     private List<Person> create1000Person() {
         List<Person> people = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
-            people.add(new Person(i,"Name" + i,30,"test" + i + "@mail.ru"));
+            people.add(new Person(i, "Name" + i, 30, "test" + i + "@mail.ru"));
         }
         return people;
     }
 
-    public void testBatchUpdate(){
+    public void testBatchUpdate() {
         List<Person> people = create1000Person();
         long before = System.currentTimeMillis();
         jdbcTemplate.batchUpdate("INSERT INTO Person VALUES(?,?,?,?)", new BatchPreparedStatementSetter() {
             @Override
             public void setValues(PreparedStatement ps, int i) throws SQLException {
-                ps.setInt(1,people.get(i).getId());
-                ps.setString(2,people.get(i).getName());
-                ps.setInt(3,people.get(i).getAge());
-                ps.setString(4,people.get(i).getEmail());
+                ps.setInt(1, people.get(i).getId());
+                ps.setString(2, people.get(i).getName());
+                ps.setInt(3, people.get(i).getAge());
+                ps.setString(4, people.get(i).getEmail());
             }
 
             @Override
