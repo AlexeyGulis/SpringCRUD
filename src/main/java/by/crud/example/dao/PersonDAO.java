@@ -2,10 +2,14 @@ package by.crud.example.dao;
 
 import by.crud.example.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -29,7 +33,7 @@ public class PersonDAO {
     }
 
     public void save(Person person) {
-        jdbcTemplate.update("INSERT INTO Person VALUES(1,?,?,?)",
+        jdbcTemplate.update("INSERT INTO Person(name,age,email) VALUES(?,?,?)",
                 person.getName(), person.getAge(), person.getEmail());
     }
 
@@ -40,5 +44,46 @@ public class PersonDAO {
 
     public void delete(int id) {
         jdbcTemplate.update("DELETE FROM PERSON WHERE id=?",id);
+    }
+
+    public void testMultipleUpdate(){
+        List<Person> people = create1000Person();
+        long before = System.currentTimeMillis();
+        for (int i = 0; i < people.size(); i++) {
+            jdbcTemplate.update("INSERT INTO Person VALUES(?,?,?,?)",people.get(i).getId(),
+                    people.get(i).getName(),people.get(i).getAge(), people.get(i).getEmail());
+        }
+        long after = System.currentTimeMillis();
+        System.out.println("Multiple update time " + (after - before));
+    }
+
+    private List<Person> create1000Person() {
+        List<Person> people = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            people.add(new Person(i,"Name" + i,30,"test" + i + "@mail.ru"));
+        }
+        return people;
+    }
+
+    public void testBatchUpdate(){
+        List<Person> people = create1000Person();
+        long before = System.currentTimeMillis();
+        jdbcTemplate.batchUpdate("INSERT INTO Person VALUES(?,?,?,?)", new BatchPreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement ps, int i) throws SQLException {
+                ps.setInt(1,people.get(i).getId());
+                ps.setString(2,people.get(i).getName());
+                ps.setInt(3,people.get(i).getAge());
+                ps.setString(4,people.get(i).getEmail());
+            }
+
+            @Override
+            public int getBatchSize() {
+                return people.size();
+            }
+        });
+        long after = System.currentTimeMillis();
+        System.out.println("Batch update time " + (after - before));
+
     }
 }
