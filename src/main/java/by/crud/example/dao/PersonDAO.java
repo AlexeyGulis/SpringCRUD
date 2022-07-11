@@ -32,14 +32,20 @@ public class PersonDAO {
                 new BeanPropertyRowMapper<>(Person.class)).stream().findAny().orElse(null);
     }
 
+    public Person show(String email) {
+        return jdbcTemplate.query("SELECT * FROM Person WHERE email=?",
+                new Object[]{email},
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny().orElse(null);
+    }
+
     public void save(Person person) {
-        jdbcTemplate.update("INSERT INTO Person(name,age,email) VALUES(?,?,?)",
-                person.getName(), person.getAge(), person.getEmail());
+        jdbcTemplate.update("INSERT INTO Person(name,age,email,address) VALUES(?,?,?,?)",
+                person.getName(), person.getAge(), person.getEmail(), person.getAddress());
     }
 
     public void update(int id, Person person) {
-        jdbcTemplate.update("UPDATE PERSON SET name=?, age=?, email=? WHERE id=?",
-                person.getName(), person.getAge(), person.getEmail(), id);
+        jdbcTemplate.update("UPDATE PERSON SET name=?, age=?, email=?, address=? WHERE id=?",
+                person.getName(), person.getAge(), person.getEmail(), person.getAddress(), id);
     }
 
     public void delete(int id) {
